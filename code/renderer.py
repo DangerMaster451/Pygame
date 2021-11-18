@@ -5,8 +5,8 @@ import sys
 #classes
 class Player:
     def __init__(self):
-        self.x = 10
-        self.y = -10
+        self.x = 20
+        self.y = -20
         self.speed = 10
         self.size = 20
 
@@ -34,13 +34,18 @@ class Player:
             self.x += self.speed / 2
             self.y += self.speed / 2
         
-        
-        
-            
-
     def render(self):
         pygame.draw.rect(window, (13, 170, 255), (self.x, self.y, self.size, self.size))
 
+class Block:
+    def __init__(self):
+        self.x = 375
+        self.y = 375
+        self.speed = 10
+        self.size = 20
+    
+    def render(self):
+        pygame.draw.rect(window, (255, 0, 0), (self.x, self.y, self.size, self.size))
 
 
 
@@ -52,6 +57,7 @@ clock = pygame.time.Clock()
 
 #Create Objects
 p = Player()
+b = Block()
   
 #Game Loop
 while True:
@@ -61,8 +67,9 @@ while True:
 
     #Player
     window.fill((0, 0, 0))
-    p.move()      
+    p.move()
     p.render()
+    b.render()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
