@@ -8,6 +8,9 @@ window = pygame.display.set_mode((750, 750))
 pygame.display.set_caption('Pygame')
 clock = pygame.time.Clock()
 
+#Server
+client.initialize()
+
 #Create Objects
 p = renderer.Player(window)
 b = renderer.Block(window)
@@ -23,6 +26,10 @@ while True:
     p.move()
     p.render()
     b.render()
+
+    #Client
+    
+    client.send(str(p.x))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

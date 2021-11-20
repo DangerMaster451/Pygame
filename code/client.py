@@ -4,8 +4,10 @@ import renderer
 HOST = '127.0.0.1'
 PORT = 65432
 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+def initialize():
+    s.connect((HOST, PORT))
+
 def send(data):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        s.sendall(bytes(data))
-        data = s.recv(1024)
+    s.sendall(bytes(data, 'utf-8'))

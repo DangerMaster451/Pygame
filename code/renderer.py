@@ -5,8 +5,8 @@ import sys
 #classes
 class Player:
     def __init__(self, window):
-        self.x = 20
-        self.y = -20
+        self.x = 375
+        self.y = 200
         self.speed = 10
         self.size = 20
         self.window = window
