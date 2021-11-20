@@ -9,12 +9,15 @@ pygame.display.set_caption('Pygame')
 clock = pygame.time.Clock()
 
 #Server
-username = "DangerMaster451"
+username = input("Username >>> ")
 client.initialize()
 
 #Create Objects
 p = renderer.Player(window)
 b = renderer.Block(window)
+
+PlayerID = client.get()
+print(PlayerID)
 
 #Game Loop
 while True:
@@ -30,7 +33,8 @@ while True:
 
     #Client
     
-    client.send(str({"username":username, "pos":[p.x, p.y]}))
+    client.send(str({"username":username, "pos":[p.x, p.y], "PlayerID":PlayerID}))
+    client.get()
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
