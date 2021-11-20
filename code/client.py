@@ -11,3 +11,6 @@ def initialize():
 
 def send(data):
     s.sendall(bytes(data, 'utf-8'))
+
+def get():
+    return str(s.recv(1024).decode())

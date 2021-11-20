@@ -9,6 +9,7 @@ pygame.display.set_caption('Pygame')
 clock = pygame.time.Clock()
 
 #Server
+username = "DangerMaster451"
 client.initialize()
 
 #Create Objects
@@ -29,8 +30,8 @@ while True:
 
     #Client
     
-    client.send(str(p.x))
-
+    client.send(str({"username":username, "pos":[p.x, p.y]}))
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
